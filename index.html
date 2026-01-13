@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Employee Management System</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="login-page">
+  <div class="login-card">
+    <h1>EMS Portal</h1>
+    <p class="tagline">Please sign in to continue</p>
+    <form id="loginForm" class="login-form" novalidate>
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" id="username" placeholder="Username" autocomplete="username" required autofocus />
+
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password" required />
+
+      <button type="submit" class="btn-primary">Sign In</button>
+    </form>
+
+    <p class="register-prompt">
+      No account? <button id="showRegisterBtn" class="link-btn">Register here</button>
+    </p>
+  </div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div id="registerPage" class="login-page" style="display:none;">
+  <div class="login-card">
+    <h1>Register</h1>
+    <p class="tagline">Create a new user account</p>
+    <form id="registerForm" class="login-form" novalidate>
+      <label for="regUsername" class="sr-only">Username</label>
+      <input type="text" id="regUsername" placeholder="Username" required />
+
+      <label for="regPassword" class="sr-only">Password</label>
+      <input type="password" id="regPassword" placeholder="Password" required />
+
+      <label for="regRole" class="sr-only">Role</label>
+      <select id="regRole" required>
+        <option value="" disabled selected>Select Role</option>
+        <option value="Admin">Admin</option>
+        <option value="Staff">Staff</option>
+      </select>
+
+      <button type="submit" class="btn-primary">Register</button>
+    </form>
+
+    <p class="register-prompt">
+      Already have an account? <button id="showLoginBtn" class="link-btn">Sign in here</button>
+    </p>
+  </div>
+</div>
+
+<!-- EMPLOYEE MANAGEMENT APP -->
+<div id="app" class="app-container" style="display:none;">
+  <header>
+    <h1>Employee Management System</h1>
+    <div>
+      <span id="welcomeMsg"></span>
+      <button id="logoutBtn" title="Logout">Logout</button>
+    </div>
+  </header>
+
+  <section id="adminControls" style="display:none;">
+    <h2>Add Employee</h2>
+    <form id="addEmployeeForm">
+      <input type="text" id="empName" placeholder="Employee Name" required />
+      <input type="text" id="empRole" placeholder="Role" required />
+      <input type="text" id="empDept" placeholder="Department" required />
+      <button type="submit">Add Employee</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Employees</h2>
+    <input type="text" id="searchInput" placeholder="Search employees by name, role or department..." style="width:100%; padding:10px; margin-bottom:15px; border-radius:6px; border:1.5px solid #ccd6dd;" />
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th>Mark Attendance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Employees will be listed here -->
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Attendance Tracking</h2>
+    <label for="attendanceDate">Select Date:</label>
+    <input type="date" id="attendanceDate" />
+    <button id="saveAttendanceBtn">Save Attendance</button>
+  </section>
+
+  <section id="attendanceReport">
+    <h2>Monthly Attendance Report</h2>
+    <label for="reportMonth">Select Month:</label>
+    <input type="month" id="reportMonth" />
+    <button id="generateReportBtn">Generate Report</button>
+    <div id="reportContent"></div>
+    <button id="downloadPdfBtn" style="display:none;">Download PDF</button>
+    <button id="downloadCsvBtn" style="display:none; margin-left:10px;">Download CSV</button>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
