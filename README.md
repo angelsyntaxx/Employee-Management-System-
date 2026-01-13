@@ -1,8 +1,6 @@
-# Employee-Management-System-
-A system for companies to manage stuff
 # Employee Management System (EMS)
 
-A simple, modern, and role-based **Employee Management System** built with **HTML**, **CSS**, and **JavaScript**.  
+A simple, modern, and role-based **Employee Management System** built with **HTML**, **CSS** and **JavaScript**.  
 Designed for companies to manage staff, track attendance, and generate reports — all in the browser with **persistent storage** using `localStorage`.
 
 ---
